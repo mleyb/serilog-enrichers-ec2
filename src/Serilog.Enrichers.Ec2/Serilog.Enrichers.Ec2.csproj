@@ -7,7 +7,8 @@
 		<Company>BlueZero</Company>
 		<TargetFrameworks>net45;netstandard1.3</TargetFrameworks>
 		<AssemblyName>Serilog.Enrichers.EC2</AssemblyName>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>Serilog.Enrichers.EC2</PackageId>
 		<PackageTags>serilog;enricher;aws;ec2</PackageTags>
 		<PackageIconUrl>http://serilog.net/images/serilog-enricher-nuget.png</PackageIconUrl>
