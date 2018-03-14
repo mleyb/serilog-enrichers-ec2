@@ -1,27 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Description>Enrich Serilog log events with properties from AWS EC2</Description>
-    <VersionPrefix>1.0.0</VersionPrefix>
-    <Authors>Serilog Contributors</Authors>
-    <TargetFrameworks>net45;netstandard1.3</TargetFrameworks>
-    <AssemblyName>Serilog.Enrichers.EC2</AssemblyName>
-    <PackageId>Serilog.Enrichers.EC2</PackageId>
-    <PackageTags>serilog;enricher;aws;ec2</PackageTags>
-    <PackageIconUrl>http://serilog.net/images/serilog-enricher-nuget.png</PackageIconUrl>
-    <PackageProjectUrl>http://serilog.net</PackageProjectUrl>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Description>Enrich Serilog log events with properties from AWS EC2</Description>
+		<Version>0.0.0</Version>
+		<Authors>mleyb</Authors>
+		<Company>BlueZero</Company>
+		<TargetFrameworks>net45;netstandard1.3</TargetFrameworks>
+		<AssemblyName>Serilog.Enrichers.EC2</AssemblyName>
+		<PackageId>Serilog.Enrichers.EC2</PackageId>
+		<PackageTags>serilog;enricher;aws;ec2</PackageTags>
+		<PackageIconUrl>http://serilog.net/images/serilog-enricher-nuget.png</PackageIconUrl>
+		<PackageProjectUrl>https://github.com/mleyb/serilog-enrichers-ec2</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/mleyb/serilog-enrichers-ec2</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Serilog" Version="2.3.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Serilog" Version="2.3.0" />
+	</ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System" />
-	<Reference Include="System.Net.Http" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+		<Reference Include="System" />
+		<Reference Include="System.Net.Http" />
+		<Reference Include="Microsoft.CSharp" />
+	</ItemGroup>
 
 </Project>
