@@ -14,6 +14,8 @@ namespace Serilog.Enrichers
 
 		private LogEventProperty _cachedProperty;
 
+		private string _ec2InstanceId;
+
 		/// <summary>
 		/// The property name added to enriched log events.
 		/// </summary>
@@ -26,19 +28,25 @@ namespace Serilog.Enrichers
 		/// <param name="propertyFactory">Factory for creating new properties to add to the event.</param>
 		public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
 		{
-			string ec2InstanceId = GetEc2InstanceId();
-
-			_cachedProperty = _cachedProperty ?? propertyFactory.CreateProperty(Ec2InstanceIdPropertyName, ec2InstanceId);
+			if (_ec2InstanceId == null)
+			{
+				_ec2InstanceId = GetEc2InstanceId();
+			}
+			
+			_cachedProperty = _cachedProperty ?? propertyFactory.CreateProperty(Ec2InstanceIdPropertyName, _ec2InstanceId);
 
 			logEvent.AddPropertyIfAbsent(_cachedProperty);
 		}
 
-		private string GetEc2InstanceId()
+		private static string GetEc2InstanceId()
 		{
-			return new HttpClient()
-				.GetStringAsync(InstanceMetadataUrl + "/instance-id")
-				.GetAwaiter()
-				.GetResult();
+			using (var client = new HttpClient())
+			{
+				return client
+					.GetStringAsync(InstanceMetadataUrl + "/instance-id")
+					.GetAwaiter()
+					.GetResult();
+			}
 		}
 	}
 }
