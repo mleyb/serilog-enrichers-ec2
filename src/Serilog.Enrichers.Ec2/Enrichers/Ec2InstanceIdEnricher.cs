@@ -10,16 +10,13 @@ namespace Serilog.Enrichers
 	/// </summary>
 	public class Ec2InstanceIdEnricher : ILogEventEnricher
 	{
+		private const string Ec2InstanceIdPropertyName = "Ec2InstanceId";
+
 		private const string InstanceMetadataUrl = "http://169.254.169.254/latest/meta-data";
 
 		private LogEventProperty _cachedProperty;
 
 		private string _ec2InstanceId;
-
-		/// <summary>
-		/// The property name added to enriched log events.
-		/// </summary>
-		public const string Ec2InstanceIdPropertyName = "Ec2InstanceId";
 
 		/// <summary>
 		/// Enrich the log event.
