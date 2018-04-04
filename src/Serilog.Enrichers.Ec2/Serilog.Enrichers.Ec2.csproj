@@ -12,6 +12,7 @@
 		<PackageId>Serilog.Enrichers.EC2</PackageId>
 		<PackageTags>serilog;enricher;aws;ec2</PackageTags>
 		<PackageIconUrl>http://serilog.net/images/serilog-enricher-nuget.png</PackageIconUrl>
+		<PackageLicenseUrl>https://github.com/mleyb/serilog-enrichers-ec2/blob/master/LICENSE</PackageLicenseUrl>
 		<PackageProjectUrl>https://github.com/mleyb/serilog-enrichers-ec2</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/mleyb/serilog-enrichers-ec2</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
