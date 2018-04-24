@@ -26,9 +26,7 @@ namespace Serilog.Enrichers
 		/// <param name="propertyFactory">Factory for creating new properties to add to the event.</param>
 		public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
 		{
-			string ec2InstanceId = GetEc2InstanceId();
-
-			_cachedProperty = _cachedProperty ?? propertyFactory.CreateProperty(Ec2InstanceIdPropertyName, ec2InstanceId);
+			_cachedProperty = _cachedProperty ?? propertyFactory.CreateProperty(Ec2InstanceIdPropertyName, GetEc2InstanceId());
 
 			logEvent.AddPropertyIfAbsent(_cachedProperty);
 		}
